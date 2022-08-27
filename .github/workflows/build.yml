@@ -28,14 +28,8 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
-          targetPlatform: WebGL
+          targetPlatform: StandaloneWindows64
           versioning: Semantic
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/WebGL/WebGL
 
       - uses: sarisia/actions-status-discord@v1.9.0
         if: always()
@@ -46,3 +40,8 @@ jobs:
       - name: Return License
         uses: game-ci/unity-return-license@v2
         if: always()
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: FarewellJam-${{build.outputs.buildVersion}}
+          path: build/StandaloneWindows64
