@@ -1000,6 +1000,12 @@ MonoBehaviour:
   movementForce: 1
   maxSpeed: 5
   playerCamera: {fileID: 0}
+  raycastOffset: {x: 0, y: 1, z: 0}
+  attackRange: 1.5
+  attackForce: 5
+  knockableLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &-5820218987807922279
 MonoBehaviour:
   m_ObjectHideFlags: 0

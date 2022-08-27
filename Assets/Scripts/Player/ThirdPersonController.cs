@@ -1,3 +1,4 @@
+using System;
 using FishNet.Object;
 using Cinemachine;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace FJ.Player
         private InputAction _move;
 
         // movement fields
+        [Header("Movement")]
         private Rigidbody _rb;
         [SerializeField] private float movementForce = 1f;
         [SerializeField] private float maxSpeed = 5f;
@@ -21,6 +23,12 @@ namespace FJ.Player
         [SerializeField] private Camera playerCamera;
         private Animator _animator;
         private NetworkAnimator _networkAnimator;
+
+        [Header("Combat")]
+        [SerializeField] private Vector3 raycastOffset;
+        [SerializeField] float attackRange = 1f;
+        [SerializeField] float attackForce = 5f;
+        [SerializeField] LayerMask knockableLayers;
 
         public override void OnStartClient()
         {
